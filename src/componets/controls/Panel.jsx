@@ -1,9 +1,18 @@
 import { Flex, Accordion } from '@chakra-ui/react';
-import inputsData from '../../dantaAndFunctions/inputsData.js';
-import React from 'react';
+import inputsData from '../../dataAndFunctions/inputsData.js';
+import { useCanvasContext } from '../../Providers/CanvasCtxProvider';
 import InputGroup from './InputGroup.jsx';
 
 const Panel = () => {
+  const { CV, setCV } = useCanvasContext();
+
+  const handleValue = (input, value) => {
+    setCV((prevSate) => ({
+      ...prevSate,
+      [input]: { value },
+    }));
+  };
+
   return (
     <Flex
       direction={'column'}
@@ -15,7 +24,12 @@ const Panel = () => {
     >
       <Accordion allowToggle>
         {inputsData.map((group, i) => (
-          <InputGroup key={i} data={group} />
+          <InputGroup
+            key={i}
+            data={group}
+            updateCanvasValue={handleValue}
+            canvasValue={CV}
+          />
         ))}
       </Accordion>
     </Flex>

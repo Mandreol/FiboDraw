@@ -7,11 +7,11 @@ import {
   Box,
 } from '@chakra-ui/react';
 import InputNumber from './Inputs/InputNumber';
-import InputColorPicker from './Inputs/InputColorPicker'; // Corregido el nombre del componente
+import InputColorPicker from './Inputs/InputColorPicker';
 import InputCheckBox from './Inputs/InputCheckBox';
 import InputSelect from './Inputs/InputSelect';
 
-const InputGroup = ({ data }) => {
+const InputGroup = ({ data, updateCanvasValue }) => {
   const inputComponents = {
     number: InputNumber,
     color: InputColorPicker,
@@ -31,7 +31,11 @@ const InputGroup = ({ data }) => {
         {data.inputs.map((input, i) => {
           const InputComponent = inputComponents[input.type];
           return InputComponent ? (
-            <InputComponent key={i} data={data.inputs[i]} />
+            <InputComponent
+              key={i}
+              data={data.inputs[i]}
+              updateCanvasValue={updateCanvasValue}
+            />
           ) : null;
         })}
       </AccordionPanel>

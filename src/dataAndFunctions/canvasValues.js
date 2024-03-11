@@ -1,11 +1,12 @@
 const canvasValues = {
+  animationSate: false,
   trace: '',
   fill: true,
   stroke: true,
   sizeIncrement: 0,
   initialSize: 0,
   finalSize: 0,
-  lineIncrement: 0,
+  lineIncrementWidth: 0,
   lineWidth: 0,
   backgroundColor: 0,
   fillColor: 0,

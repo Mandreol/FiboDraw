@@ -1,11 +1,11 @@
 import { createContext, useState, useContext } from 'react';
-import canvasValues from '../dantaAndFunctions/canvasValues';
+import canvasValues from '../dataAndFunctions/canvasValues';
 export const CanvasContext = createContext();
 
 function CanvasCtxProvider(props) {
-  const [CValues, setC] = useState(canvasValues);
+  const [CV, setCV] = useState(canvasValues);
 
-  const value = { CValues, setC };
+  const value = { CV, setCV };
 
   return (
     <CanvasContext.Provider value={value}>
